@@ -37,7 +37,7 @@ ban:
 allow:
     leave_course
 ```
-The conditions in a `require` section must be true on every frame during timing. Each condition must be separated by at least one newline. A `ban` section lets you ban particular strategies or actions from your task (see: [List of supported strategies and actions](LINK_TO_GITHUB_PAGE_HOST)). Each strategy/action must be separated by at least one newline.  
+The conditions in a `require` section must be true on every frame during timing. Each condition must be separated by at least one newline. A `ban` section lets you ban particular strategies or actions from your task (see: [List of supported strategies and actions](https://github.com/tjk113/TASCompLang/blob/main/strats_list.py)). Each strategy/action must be separated by at least one newline.  
 
 There are three strategies which are banned by default: `leave_course`, `use_warp`, and `goto_pu`. An `allow` section can be used to explicitly allow any of these 3 strategies. 
 
