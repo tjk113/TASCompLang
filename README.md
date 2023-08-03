@@ -22,6 +22,9 @@ ban:
     blj
 ```
 
+## Using TCL with TAS-Comp-Bot
+To use TCL-generated `Conditions.lua` files with TAS-Comp-Bot, simply drag and drop the files from this repo's `TimingLua/TASCompTiming` directory into the same directory in your bot folder. Make sure you choose 'yes' to overwrite the `Memory.lua` file, as TCL uses some extra functions defined in this version.
+
 ## Available Game Info
 Here is the game information that can be used in TCL files (format: `variable` 🡒 `return type`):  
 - `action` 🡒 `string`
