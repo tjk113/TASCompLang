@@ -1,7 +1,7 @@
 # TASCompLang
 a small, extensible, declarative language for generating `Conditions.lua` files for use in [TAS-Comp-Bot](https://github.com/bxrru/TAS-Comp-Bot)'s Lua script timing system
 
-[Read the guide to get started](LINK_TO_TCL_GUIDE)
+[Read the guide to get started](https://github.com/tjk113/TASCompLang/blob/main/GUIDE.md)
 
 ## Example TCL file
 ```
