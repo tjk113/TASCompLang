@@ -102,7 +102,7 @@ def try_match_block_label(unknown_block_label: str) -> str:
 def try_match_action_name(unknown_action: str) -> str:
     ...
 
-def parse_file(path: str) -> TaskConstraints:
+def parse_file(path: str) -> TaskConstraints|Exception:
     with open(path, 'r', encoding='utf-8') as file:
         tc = TaskConstraints()
         current_block = ''
@@ -120,8 +120,8 @@ def parse_file(path: str) -> TaskConstraints:
                 if ':' not in line_lower:
                     return throw_error('syn', 'missing ":"', line_num)
                 tc.course = line_lower.split(':')[1].strip()
-                # If there is no course name in this
-                # line, we'll find it in the next one
+                # If there is no course name in this line,
+                # we'll find it somewhere in the block
                 if not tc.course:
                     current_block = 'course'
                 elif check_known_course(tc.course, line_num) == Exception:
@@ -312,14 +312,14 @@ def main():
     arg_parser.add_argument('-o', nargs=1, default='Conditions.lua', help='path to output file')
     args = arg_parser.parse_args()
 
-    tc = parse_file(args.src[0])
+    tc: TaskConstraints = parse_file(args.src[0])
 
-    cf = ''
+    custom_functions_str = ''
     if args.cf:
         print(f'Copying custom functions from "{args.cf}"')
         with open(args.cf, encoding='utf-8') as file:
-            cf = file.read()
+            custom_functions_str = file.read()
     if tc != Exception:
-        generate_conditions_lua(tc, args.o, cf)
+        generate_conditions_lua(tc, args.o, custom_functions_str)
         print(f'Output to {"Conditions.lua"}')
 main()
