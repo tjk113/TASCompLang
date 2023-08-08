@@ -72,6 +72,8 @@ You can explicitly ban actions
 Here are the currently available standard functions (format: `function` 🡒 `return type`):
 - `full_black_fadeout` 🡒 `boolean`  
 Returns true on the first fully black frame of a fadeout
+- `first_visible_frame` 🡒 `boolean`
+Returns true on the first visible frame after warping
 
 ## Supported Operators
 - `>` Greater than

@@ -1,8 +1,7 @@
 course: ccm
 
 start:
-    action = "standing"
-    red_coin_count = 0
+    first_visible_frame
 
 end:
     red_coin_count = 3
