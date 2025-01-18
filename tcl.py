@@ -48,6 +48,9 @@ def check_known_course(course_name: str, line_num: int) -> bool|Exception:
         return throw_error('', f'unknown course "{course_name}"', line_num)
     return True
 
+def escape(text: str) -> str:
+    return text.replace("'", "\\'")
+
 def parse_block_line(tc: TaskConstraints, current_block: str, line: str, line_num: int):
     # Make sure every quote has a match
     if line.count('"') % 2 != 0:
@@ -82,7 +85,8 @@ def parse_block_line(tc: TaskConstraints, current_block: str, line: str, line_nu
             action_count_call = f'{action_count_split[0]}({action_count_split[1]}, PLACEHOLDER)'
             line[0] = action_count_call
         # Add the parsed line to the current block
-        exec(f"tc.{current_block}.append(ParsedLine('{line[0]}', '{operator}', '{line[1]}'))")
+        # (escaping `line[1]` because it might have an apostrophe in it)
+        exec(f"tc.{current_block}.append(ParsedLine('{line[0]}', '{operator}', '{escape(line[1])}'))")
     # Handle ban and allow blocks
     else:
         line = line.lower()
