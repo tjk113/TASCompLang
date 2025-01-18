@@ -1,3 +1,4 @@
+#!/bin/python3
 from argparse import ArgumentParser
 from collections import namedtuple
 import re
