@@ -73,8 +73,11 @@ def parse_block_line(tc: TaskConstraints, current_block: str, line: str, line_nu
 
         # Separate line at the operator
         line = [elem.strip() for elem in line.split(operator)]
-        # Convert single equality sign to double
-        operator = '==' if operator == '=' else operator
+        # Convert equality operators to Lua equivalents
+        if operator == '=':
+            operator = '=='
+        elif operator == '!=':
+            operator = "~="
         # 'action_count' calls take a parameter,
         # so we need to format them properly
         if 'action_count' in line[0].lower():
