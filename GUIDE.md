@@ -61,9 +61,9 @@ course: ttm
 ```
 course: Tall, Tall Mountain
 ```
-It is recommended to use course initials, because if you specify a course by full name you must use proper spelling and punctation. Captialization, however, is not required with either method (`course: ttm` is the same as `course: TTM`).  
+It is recommended to use course initials, because if you specify a course by full name you must use proper spelling and punctuation. Captialization, however, is not required with either method (`course: ttm` is the same as `course: TTM`).  
 
-You may also to specify a course by its stage index, but this is less intuitive, as many courses' internal stage indices don't match their in-game course numbers. The primary use of this should be for tasks that take place in romhacks.  
+You may also specify a course by its stage index, but this is less intuitive, as many courses' internal stage indices don't match their in-game course numbers. This is intended to be used for tasks that take place in romhacks.  
 
 A newline is not required for this section, given that it only has one necessary line. You can still use as many as you'd like, though.
 
@@ -89,4 +89,4 @@ By default, the compiler outputs a file named `Conditions.lua` in the current di
 
 If your TCL file uses custom functions (see: [Custom Functions](#custom-functions)), then you must use the `-cf` compiler flag. If you don't provide a path to this flag, the compiler will look for a file named `CustomFunctions.lua` in the current directory.
 
-After you have you've generated your `Conditions.lua` file, make sure it's in the bot's `TimingLua` directory. Then you'll be ready to start timing submissions 😀.
+After you've generated your `Conditions.lua` file, make sure it's in the bot's `TimingLua` directory. Then you'll be ready to start timing submissions 😀.
