@@ -1,6 +1,7 @@
 course: bits
 
 start:
+    action != "stop teleporting"
     action != "standing"
 
 end:
