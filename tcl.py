@@ -217,12 +217,14 @@ def generate_start_condition_statement(statements: list[ParsedLine]):
     return end_str
 
 def generate_end_condition_statement(statements: list[ParsedLine]) -> str:
+    # Update the broken box counts on every frame
+    end_str = "    update_box_broken_counts()\n"
     # Last statement in 'end' block is what should actually stop timing
     # e.g. you need 6 red coins and then need to enter the disappear action:
     # you want to be able to DQ properly if you enter the disappear action (which
     # ostensibly is what should actually stop timing) with less than 6 red coins
     last_statement = statements[-1]
-    end_str = f'    if {last_statement.function}() {last_statement.operator} {last_statement.value} then\n'
+    end_str += f'    if {last_statement.function}() {last_statement.operator} {last_statement.value} then\n'
     if len(list(statements)) > 1:
         update_previous_action = ''
         for i, statement in enumerate(statements[:-1]):
